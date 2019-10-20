@@ -19,11 +19,7 @@ public class AD {
         
         
         
-        System.out.println("ME CAGO EN TODO GG");
-        System.out.println("ME CAGO EN TODO GG");
-        System.out.println("ME CAGO EN TODO GG");
-        System.out.println("ME CAGO EN TODO GG");
-        System.out.println("ME CAGO EN TODO GG");
+        
         
     }
     
