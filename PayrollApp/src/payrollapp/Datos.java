@@ -19,6 +19,9 @@ public class Datos extends javax.swing.JFrame {
         setResizable(false);
         setTitle("Agregar Datos ");
     }
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -380,6 +383,16 @@ public class Datos extends javax.swing.JFrame {
 
     private void calcularbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularbtnActionPerformed
         
+        
+        if (nombre.getText().equals("") || cedula.getText().equals("") || puesto.getText().equals("") || salariob.getText().equals("") || ingresos.getText().equals("") || reembolsos.getText().equals("") || horas.getText().equals("") || vacaciones.getText().equals("") || utilidades.getText().equals("") || prestamos.getText().equals("") || asociacion.getText().equals("") || pensiones.getText().equals("") ) {
+                
+           JOptionPane.showMessageDialog(this, "Error campos vacíos! ");
+           
+             
+        }else{
+            
+        JOptionPane.showMessageDialog(this, "Los datos fueron guardados de manera exitosa! ");
+            
         nombre.setEnabled(false);
         cedula.setEnabled(false);
         puesto.setEnabled(false);
@@ -394,6 +407,11 @@ public class Datos extends javax.swing.JFrame {
         asociacion.setEnabled(false);
         pensiones.setEnabled(false);
         
+        dispose();
+        Resultados open = new Resultados();
+        open.setVisible(true);
+        
+        
         int Salariobruto = Integer.parseInt(salariob.getText());
         int Ingresos = Integer.parseInt(ingresos.getText());
         int Reembolsos = Integer.parseInt(reembolsos.getText());
@@ -406,21 +424,23 @@ public class Datos extends javax.swing.JFrame {
         
         
         double ResultadoSalarioBruto = Salariobruto+Ingresos+Reembolsos+HorasExtra+Vacaciones+Utilidades+Prestamos+Asociacion+Pensiones;
-        double ResultadoEnfermMater = ResultadoSalarioBruto-(ResultadoSalarioBruto*5.5);
-        double ResultadoInvalidez = ResultadoSalarioBruto-(ResultadoSalarioBruto*3.84);
-        double ResultadoBancoPopular = ResultadoSalarioBruto-(ResultadoSalarioBruto*1.1);
-        double ResultadoAso = ResultadoSalarioBruto-(ResultadoSalarioBruto*(Asociacion/100));
-        double ResultadoPensionComplem = ResultadoSalarioBruto-(ResultadoSalarioBruto*(Pensiones/100));
+        double ResultadoEnfermMater = (ResultadoSalarioBruto*5.5)-ResultadoSalarioBruto;
+        double ResultadoInvalidez = (ResultadoSalarioBruto*3.84)-ResultadoSalarioBruto;
+        double ResultadoBancoPopular = (ResultadoSalarioBruto*1.1)-ResultadoSalarioBruto;
+        double ResultadoAso =(ResultadoSalarioBruto*(Asociacion/100)- ResultadoSalarioBruto);
+        double ResultadoPensionComplem = (ResultadoSalarioBruto*(Pensiones/100)-ResultadoSalarioBruto);
         
-        double ResultadoRenta= 0.0;
-        if (ResultadoSalarioBruto>817000.00 && ResultadoSalarioBruto<1226000.00) {
-            ResultadoRenta = ResultadoSalarioBruto-(ResultadoSalarioBruto*0.1);
-        } else if (ResultadoSalarioBruto>1226000.00) {
-            ResultadoRenta = ResultadoSalarioBruto-(ResultadoSalarioBruto*0.15);
-        }
         
-        double ResultadoSalarioNeto = ResultadoEnfermMater+ResultadoInvalidez+ResultadoBancoPopular+ResultadoAso+ResultadoPensionComplem+ResultadoRenta;
+           double ResultadoRenta= 0.0;
+           if (ResultadoSalarioBruto>817000.00 && ResultadoSalarioBruto<1226000.00) {
+            ResultadoRenta = (ResultadoSalarioBruto*0.1)-ResultadoSalarioBruto;
+           } else if (ResultadoSalarioBruto>1226000.00) {
+            ResultadoRenta = (ResultadoSalarioBruto*0.15)-ResultadoSalarioBruto;
+           }
+        
+           double ResultadoSalarioNeto = ResultadoEnfermMater+ResultadoInvalidez+ResultadoBancoPopular+ResultadoAso+ResultadoPensionComplem+ResultadoRenta;
 
+           
         Resultados.brut.setText(Double.toString(ResultadoSalarioBruto));
         Resultados.enfermedad.setText(Double.toString(ResultadoEnfermMater));
         Resultados.invalidez.setText(Double.toString(ResultadoInvalidez));
@@ -430,11 +450,8 @@ public class Datos extends javax.swing.JFrame {
         Resultados.solidarista.setText(Double.toString(ResultadoAso));
         Resultados.banco.setText(Double.toString(ResultadoBancoPopular));
         
-        Resultados open = new Resultados();
-        open.setVisible(true);
-        dispose();
         
-        
+        } 
         
     }//GEN-LAST:event_calcularbtnActionPerformed
 
