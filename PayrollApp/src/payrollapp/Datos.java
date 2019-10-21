@@ -13,9 +13,6 @@ import javax.swing.JOptionPane;
  */
 public class Datos extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Datos
-     */
     public Datos() {
         initComponents();
         setLocationRelativeTo(null);
@@ -59,6 +56,7 @@ public class Datos extends javax.swing.JFrame {
         utilidades = new javax.swing.JTextField();
         vacaciones = new javax.swing.JTextField();
         horas = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -126,6 +124,11 @@ public class Datos extends javax.swing.JFrame {
         pensiones.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         asociacion.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        asociacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                asociacionActionPerformed(evt);
+            }
+        });
 
         prestamos.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
@@ -134,6 +137,8 @@ public class Datos extends javax.swing.JFrame {
         vacaciones.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         horas.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        jLabel14.setText("*Escriba el porcentaje de su aporte");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -158,21 +163,24 @@ public class Datos extends javax.swing.JFrame {
                     .addComponent(reembolsos, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
                 .addGap(103, 103, 103)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel10)
-                        .addComponent(jLabel9)
-                        .addComponent(jLabel11)
-                        .addComponent(jLabel12)
-                        .addComponent(jLabel13)))
-                .addGap(73, 73, 73)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(asociacion)
-                    .addComponent(pensiones, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(prestamos)
-                    .addComponent(utilidades)
-                    .addComponent(vacaciones)
-                    .addComponent(horas))
+                    .addComponent(jLabel14)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel10)
+                                .addComponent(jLabel9)
+                                .addComponent(jLabel11)
+                                .addComponent(jLabel12)
+                                .addComponent(jLabel13)))
+                        .addGap(73, 73, 73)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(pensiones, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(prestamos)
+                            .addComponent(utilidades)
+                            .addComponent(vacaciones)
+                            .addComponent(horas)
+                            .addComponent(asociacion))))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -208,13 +216,15 @@ public class Datos extends javax.swing.JFrame {
                     .addComponent(jLabel12)
                     .addComponent(ingresos, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(asociacion, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel14)
                 .addGap(69, 69, 69)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jLabel13)
                     .addComponent(reembolsos, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pensiones, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(219, 207, 171));
@@ -326,7 +336,7 @@ public class Datos extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)))
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(calcularbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cerrarbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -373,6 +383,7 @@ public class Datos extends javax.swing.JFrame {
         nombre.setEnabled(false);
         cedula.setEnabled(false);
         puesto.setEnabled(false);
+        
         salariob.setEnabled(false);
         ingresos.setEnabled(false);
         reembolsos.setEnabled(false);
@@ -382,14 +393,46 @@ public class Datos extends javax.swing.JFrame {
         prestamos.setEnabled(false);
         asociacion.setEnabled(false);
         pensiones.setEnabled(false);
-            
+        
+        int Salariobruto = Integer.parseInt(salariob.getText());
+        int Ingresos = Integer.parseInt(ingresos.getText());
+        int Reembolsos = Integer.parseInt(reembolsos.getText());
+        int HorasExtra= Integer.parseInt(horas.getText());
+        int Vacaciones = Integer.parseInt(vacaciones.getText());
+        int Utilidades = Integer.parseInt(utilidades.getText());
+        int Prestamos = Integer.parseInt(prestamos.getText());
+        int Asociacion = Integer.parseInt(asociacion.getText());       
+        int Pensiones = Integer.parseInt(pensiones.getText());
         
         
-        dispose();
+        double ResultadoSalarioBruto = Salariobruto+Ingresos+Reembolsos+HorasExtra+Vacaciones+Utilidades+Prestamos+Asociacion+Pensiones;
+        double ResultadoEnfermMater = ResultadoSalarioBruto-(ResultadoSalarioBruto*5.5);
+        double ResultadoInvalidez = ResultadoSalarioBruto-(ResultadoSalarioBruto*3.84);
+        double ResultadoBancoPopular = ResultadoSalarioBruto-(ResultadoSalarioBruto*1.1);
+        double ResultadoAso = ResultadoSalarioBruto-(ResultadoSalarioBruto*(Asociacion/100));
+        double ResultadoPensionComplem = ResultadoSalarioBruto-(ResultadoSalarioBruto*(Pensiones/100));
         
-        Resultados open = new Resultados ();
+        double ResultadoRenta= 0.0;
+        if (ResultadoSalarioBruto>817000.00 && ResultadoSalarioBruto<1226000.00) {
+            ResultadoRenta = ResultadoSalarioBruto-(ResultadoSalarioBruto*0.1);
+        } else if (ResultadoSalarioBruto>1226000.00) {
+            ResultadoRenta = ResultadoSalarioBruto-(ResultadoSalarioBruto*0.15);
+        }
+        
+        double ResultadoSalarioNeto = ResultadoEnfermMater+ResultadoInvalidez+ResultadoBancoPopular+ResultadoAso+ResultadoPensionComplem+ResultadoRenta;
+
+        Resultados.brut.setText(Double.toString(ResultadoSalarioBruto));
+        Resultados.enfermedad.setText(Double.toString(ResultadoEnfermMater));
+        Resultados.invalidez.setText(Double.toString(ResultadoInvalidez));
+        Resultados.neto.setText(Double.toString(ResultadoSalarioNeto));
+        Resultados.plan.setText(Double.toString(ResultadoPensionComplem));
+        Resultados.renta.setText(Double.toString(ResultadoRenta));
+        Resultados.solidarista.setText(Double.toString(ResultadoAso));
+        Resultados.banco.setText(Double.toString(ResultadoBancoPopular));
+        
+        Resultados open = new Resultados();
         open.setVisible(true);
-        
+        dispose();
         
         
         
@@ -425,6 +468,10 @@ public class Datos extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_limpiarbtnActionPerformed
+
+    private void asociacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asociacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_asociacionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -473,6 +520,7 @@ public class Datos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -94,7 +94,7 @@
                       </Group>
                   </Group>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="39" max="32767" attributes="0"/>
+                  <EmptySpace pref="17" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="calcularbtn" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
                       <Component id="cerrarbtn" alignment="3" min="-2" pref="45" max="-2" attributes="0"/>
@@ -147,23 +147,28 @@
                       </Group>
                       <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="pensiones" pref="200" max="32767" attributes="0"/>
+                                  <Component id="prestamos" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="utilidades" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="vacaciones" max="32767" attributes="0"/>
+                                  <Component id="horas" max="32767" attributes="0"/>
+                                  <Component id="asociacion" alignment="0" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="asociacion" max="32767" attributes="0"/>
-                          <Component id="pensiones" pref="200" max="32767" attributes="0"/>
-                          <Component id="prestamos" alignment="0" max="32767" attributes="0"/>
-                          <Component id="utilidades" alignment="0" max="32767" attributes="0"/>
-                          <Component id="vacaciones" max="32767" attributes="0"/>
-                          <Component id="horas" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="60" max="32767" attributes="0"/>
                   </Group>
@@ -207,6 +212,8 @@
                           <Component id="ingresos" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                           <Component id="asociacion" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -214,7 +221,7 @@
                           <Component id="reembolsos" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                           <Component id="pensiones" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="37" max="32767" attributes="0"/>
+                      <EmptySpace pref="46" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -389,6 +396,9 @@
                   <Font name="Times New Roman" size="14" style="0"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="asociacionActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
@@ -432,6 +442,11 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel14">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="*Escriba el porcentaje de su aporte"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
